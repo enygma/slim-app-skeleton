@@ -15,4 +15,12 @@ class Basecontroller
         $request = $this->container->get('response');
         return $this->container->view->render($request, $view, $data);
     }
+
+    public function __get($property)
+    {
+        if (isset($this->container, $property)) {
+            return $this->container->$property;
+        }
+        return null;
+    }
 }

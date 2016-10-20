@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once BASE_PATH.'/vendor/twig/twig/lib/Twig/Autoloader.php';
 \Twig_Autoloader::register();
 
@@ -27,6 +29,7 @@ foreach (new DirectoryIterator(APP_PATH.'/Controller') as $fileInfo) {
     };
 }
 
+// Register the Twig view helper
 $container['view'] = function($container) {
     $view = new \App\View\TemplateView(BASE_PATH.'/templates');
     $view['container'] = $container;
@@ -36,4 +39,11 @@ $container['view'] = function($container) {
         $container['request']->getUri()
     ));
     return $view;
+};
+
+// Register the session helper
+$container['session'] = function($container) {
+    $session_factory = new \Aura\Session\SessionFactory;
+    $session = $session_factory->newInstance($_COOKIE);
+    return $session->getSegment('default');
 };
