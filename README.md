@@ -31,7 +31,7 @@ The default installation comes with an example of a simple "index" route you can
 
 The controller class should be created in `App\Controller` with the naming convention `*Controller.php`. So, if you're wanting to add some routes for "Foo" the file should be `App\Controller\FooController.php` and contain the following:
 
-```
+```php
 <?php
 
 namespace App\Controller;
@@ -67,8 +67,33 @@ By default the application uses Twig for output templating. In this example we'r
 
 Finally we'll add in the route to connect these two together. Edit the `bootstrap\routes.php` file and add in this:
 
-```
+```php
 $app->get('/foo', '\App\Controller\FooController:index');
 ```
 
 That's all there is to it - now when you visit the `/foo` endpoint on your application you should get the "Foo index view!" content.
+
+### Accessing the session
+
+By default the application also includes session support. You can access this easily in your controllers via the container and the `session` helper property:
+
+```php
+<?php
+
+namespace App\Controller;
+
+class IndexController extends \App\Controller\BaseController
+{
+    public function index()
+    {
+        $myValue = 'foo';
+        // Set the value
+        $this->session->set('myvalue', $myValue);
+
+        // Get the value
+        $this->session->get('myvalue');
+
+        return $this->render('/index/index.php');
+    }
+}
+```
