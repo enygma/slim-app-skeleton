@@ -1,9 +1,20 @@
 {
+    "name": "enygma/slim-app-skeleton",
+    "description": "A skeleton of a Slim application (with extras)",
+    "keywords": ["slim", "framework", "skeleton", "slimframework"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris Cornutt",
+            "email": "ccornutt@phpdeveloper.org"
+        }
+    ],
     "require": {
         "slim/slim": "^3.5",
         "slim/twig-view": "^2.1",
         "vlucas/phpdotenv": "^2.4",
-        "aura/session": "^2.1"
+        "aura/session": "^2.1",
+        "illuminate/database": "^5.3"
     },
     "autoload": {
         "psr-4": {
