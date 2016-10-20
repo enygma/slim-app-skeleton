@@ -2,6 +2,6 @@
 
 {% block content %}
 
-this is the index template
+The installation of the Slim skeleton application was successful! You can find this view in "templates/index/index.php".
 
 {% endblock %}

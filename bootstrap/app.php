@@ -2,7 +2,8 @@
 require_once BASE_PATH.'/vendor/twig/twig/lib/Twig/Autoloader.php';
 \Twig_Autoloader::register();
 
-$config = [];
+$dotenv = new Dotenv\Dotenv(BASE_PATH);
+$dotenv->load();
 
 $app = new Slim\App();
 
