@@ -9,19 +9,13 @@
             "email": "ccornutt@phpdeveloper.org"
         }
     ],
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:psecio/validation.git"
-        }
-    ],
     "require": {
         "slim/slim": "^3.5",
         "slim/twig-view": "^2.1",
         "vlucas/phpdotenv": "^2.4",
         "aura/session": "^2.1",
         "illuminate/database": "^5.3",
-        "psecio/validation": "dev-master"
+        "psecio/validation": "^0.1.0"
     },
     "autoload": {
         "psr-4": {
