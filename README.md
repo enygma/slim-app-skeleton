@@ -3,8 +3,9 @@
 This project is a basic skeleton of a Slim application that includes:
 
 - Controller support
-- Templating via Twig views (including layouts)
+- Templating via [Twig](http://twig.sensiolabs.org/) views (including layouts)
 - A basic file structure for an MVC application
+- Database migrations with [Phinx](https://phinx.org/)
 
 ### Installation:
 
