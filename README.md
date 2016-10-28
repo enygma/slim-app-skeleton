@@ -27,12 +27,13 @@ Be sure to replace the hostname and `ErrorLog` path for your environment.
 
 #### 2. Copy and configure the `.env` file
 
-Copy over the `.env.example` to `.env` in the base directory. If the installation is successful you should see a "Success!" message when you visit your hostname.
+Copy over the `.env.example` to `.env` in the base directory.
 
 #### 3. Copy and configure the `phinx.yml.example` file
 
 Copy the `phinx.yml.example` file over to `phinx.yml` and update the database connection information for your environment. By default it will use the `development` environment settings.
 
+*DONE:* If the installation is successful you should see a "Success!" message when you visit your hostname.
 
 ### Adding a new route
 
