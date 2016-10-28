@@ -9,7 +9,11 @@ This project is a basic skeleton of a Slim application that includes:
 
 ### Installation:
 
-To use this project, clone it and point your web server at the `public/` directory as the document root:
+To use this project, clone it and perform the following:
+
+#### 1. Set up the Apache virtual host
+
+Ensure that `mod_rewrite` is enabled and point your web server at the `public/` directory as the document root:
 
 ```
 <VirtualHost *:80>
@@ -19,9 +23,15 @@ To use this project, clone it and point your web server at the `public/` directo
 </VirtualHost>
 ```
 
-Replacing the hostname and `ErrorLog` path as needed.
+Be sure to replace the hostname and `ErrorLog` path for your environment.
 
-Then copy over the `.env.example` to `.env` in the base directory. If the installation is successful you should see a "Success!" message when you visit your hostname.
+#### 2. Copy and configure the `.env` file
+
+Copy over the `.env.example` to `.env` in the base directory. If the installation is successful you should see a "Success!" message when you visit your hostname.
+
+#### 3. Copy and configure the `phinx.yml.example` file
+
+Copy the `phinx.yml.example` file over to `phinx.yml` and update the database connection information for your environment. By default it will use the `development` environment settings.
 
 
 ### Adding a new route
