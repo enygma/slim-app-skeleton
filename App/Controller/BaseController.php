@@ -23,4 +23,10 @@ class Basecontroller
         }
         return null;
     }
+
+    public function verify($request, $rules)
+    {
+        $validator = \Psecio\Validation\Validator::getInstance('request.slim3');
+        return $validator->execute($request, $rules);
+    }
 }
