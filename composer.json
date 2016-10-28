@@ -15,7 +15,8 @@
         "vlucas/phpdotenv": "^2.4",
         "aura/session": "^2.1",
         "illuminate/database": "^5.3",
-        "psecio/validation": "^0.1.0"
+        "psecio/validation": "^0.1.0",
+        "robmorgan/phinx": "^0.6.5"
     },
     "autoload": {
         "psr-4": {
