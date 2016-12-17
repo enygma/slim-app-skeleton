@@ -137,3 +137,29 @@ class IndexController extends \App\Controller\BaseController
     }
 }
 ```
+
+### Working with models
+
+This skeleton makes use of the encapsulated version of the [Eloquent](https://laravel.com/docs/5.3/eloquent) functionality from the Laravel framework. You can check out the documentation over on the Laravel site for more information.
+
+To create a new model in the skeleton app, you'll need to add a new file in `App\Model` named like your table. For example, if you have a table named `users` you should create a `User` model in `App\Model\User.php`:
+
+```
+<?php
+
+namespace App\Model;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+	/* nothing to see, move along */
+}
+```
+
+You can then use this model anywhere in your application thanks to the autoloading:
+
+```
+$user = new \App\Model\User();
+```
+
+All Eloquent functionality, including relations, works in this system.
