@@ -1,4 +1,4 @@
-## Slim Application Skeleton
+# Slim Application Skeleton
 
 This project is a basic skeleton of a Slim application that includes:
 
@@ -7,13 +7,47 @@ This project is a basic skeleton of a Slim application that includes:
 - A basic file structure for an MVC application
 - Database migrations with [Phinx](https://phinx.org/)
 
-### Installation:
+## Installation:
 
-To use this project, clone it and perform the following:
+There are two ways you can install the project and get it up and running: *automated and manual*
 
-#### 1. Set up the Apache virtual host
+### Automated
 
-Ensure that `mod_rewrite` is enabled and point your web server at the `public/` directory as the document root:
+To use the automated method, execute the `setup.sh` script in the root directory of the project:
+
+```
+chmod +x setup.sh
+./setup.sh
+```
+
+This will ask you a series of questions to set up the application and create the `.env` configuration file to match
+
+### Manual
+
+The manual process goes through the same flow, you just have to do things by hand. Here's the basic steps:
+
+1. Copy the `.env.example` file to `.env`
+2. Use your favorite text editor to open the file and update the settings inside to match your configuration
+3. Copy over the `phinx.yml.example` file to `phinx.yml`
+4. Open it and, in the `development` section update it with your database configuration information (matching what's in `.env`)
+
+
+## Hosting the site
+
+### Built-in PHP server
+
+The simplest way to use the skeleton is to just serve it locally with the built-in PHP server. To do this, clone the repository into
+a directory and `cd public/`. Once in the public directory, use this command to host the site:
+
+```
+php -S localhost:8080
+```
+
+This will make the site available on `http://localhost:8080` - if you hit that URL in a browser the
+
+### Hosting with Apache
+
+You can also set up a virtual host to serve the site from an Apache instance. Ensure that `mod_rewrite` is enabled and point your web server at the `public/` directory as the document root:
 
 ```
 <VirtualHost *:80>
@@ -25,15 +59,9 @@ Ensure that `mod_rewrite` is enabled and point your web server at the `public/` 
 
 Be sure to replace the hostname and `ErrorLog` path for your environment.
 
-#### 2. Copy and configure the `.env` file
+## Using the Project
 
-Copy over the `.env.example` to `.env` in the base directory.
-
-#### 3. Copy and configure the `phinx.yml.example` file
-
-Copy the `phinx.yml.example` file over to `phinx.yml` and update the database connection information for your environment. By default it will use the `development` environment settings.
-
-*DONE:* If the installation is successful you should see a "Success!" message when you visit your hostname.
+Below is information about actually using the project and working with routes, controllers and views.
 
 ### Adding a new route
 
