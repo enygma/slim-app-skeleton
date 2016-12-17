@@ -1,8 +1,9 @@
 #!/bin/sh
 printf "\e[1;32m%-6s\e[m\n" "### Skeleton Setup"
 
-printf "Moving .env.example to .env\n\n"
+printf "Creating .env and phinx.yml files\n\n"
 cp .env.example .env
+cp phinx.yml.example phinx.yml
 
 default_appname="MyApp"
 
@@ -39,7 +40,7 @@ if [ $dbsetup == 'Y' ] || [ $dbsetup == 'y' ]; then
     printf "Database user [$default_dbuser]: "
     read dbuser
     if [[ "$dbuser" == "" ]]; then
-        dbhost=$default_dbuser
+        dbuser=$default_dbuser
     fi
     sed -i.bak "s/$default_dbuser/$dbuser/" .env
 
@@ -47,20 +48,26 @@ if [ $dbsetup == 'Y' ] || [ $dbsetup == 'y' ]; then
     printf "Database password [$default_dbpass]: "
     read dbpass
     if [[ "$dbpass" == "" ]]; then
-        dbhost=$default_dbpass
+        dbpass=$default_dbpass
     fi
     sed -i.bak "s/$default_dbpass/$dbpass/" .env
 
     # Database name
     printf "Database name [$default_dbname]: "
     read dbname
-    if [[ "$dbanme" == "" ]]; then
-        dbhost=$default_dbname
+    if [[ "$dbname" == "" ]]; then
+        dbname=$default_dbname
     fi
     sed -i.bak "s/$default_dbname/$dbname/" .env
 
+    printf "\nCopying values to the Phinx configuration\n\n"
+
+    sed -i.bak "s/development_name/$dbname/" phinx.yml
+    sed -i.bak "s/development_pass/$dbpass/" phinx.yml
+    sed -i.bak "s/development_user/$dbuser/" phinx.yml
+    sed -i.bak "s/development_host/$dbhost/" phinx.yml
 else
-    printf "\e[1;31m%-6s\e[m\n\n" "Database configration left as default in .env"
+    printf "\e[1;31m%-6s\e[m\n\n" "Database configration left as default in .env and phynx.yml"
 fi
 
 printf "\e[1;32m%-6s\e[m\n\n" "--- Setup complete!"
