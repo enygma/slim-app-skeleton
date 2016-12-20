@@ -144,7 +144,7 @@ This skeleton makes use of the encapsulated version of the [Eloquent](https://la
 
 To create a new model in the skeleton app, you'll need to add a new file in `App\Model` named like your table. For example, if you have a table named `users` you should create a `User` model in `App\Model\User.php`:
 
-```
+```php
 <?php
 
 namespace App\Model;
@@ -158,8 +158,39 @@ class User extends Model
 
 You can then use this model anywhere in your application thanks to the autoloading:
 
-```
+```php
 $user = new \App\Model\User();
 ```
 
 All Eloquent functionality, including relations, works in this system.
+
+### Working with Validation
+
+Also included in the package is the [psecio/validation](https://github.com/psecio/validation) library that can be used for either one-time validation or request validation. It comes included with a request validator for Slim v3 applications that can be easily used in controllers to ensure the information submitted is valid:
+
+```php
+<?php
+
+namespace App\Controller;
+
+class IndexController extends \App\Controller\BaseController
+{
+    public function index($request, $response, $args)
+    {
+        $data = [];
+        $validator = \Psecio\Validation\Validator::getInstance('request.slim3');
+
+        $result = $validator->execute($request, [
+            'email' => 'required|email'
+        ]);
+        if ($result !== true) {
+			echo 'fail!';
+		}
+
+        return $this->render('/index/index.php', $data);
+    }
+}
+?>
+``
+
+The `$request` instance is passed into the validator's `execute()` method and a boolean result shows the status of the tests. You can find out more about using this library [on the GitHub repository for psecio/validation](https://github.com/psecio/validation).
