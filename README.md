@@ -6,6 +6,7 @@ This project is a basic skeleton of a Slim application that includes:
 - Templating via [Twig](http://twig.sensiolabs.org/) views (including layouts)
 - A basic file structure for an MVC application
 - Database migrations with [Phinx](https://phinx.org/)
+- [Eloquent](https://laravel.com/docs/5.3/eloquent) for working with database models and tables
 
 ## Installation:
 
