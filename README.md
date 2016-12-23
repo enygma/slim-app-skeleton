@@ -192,6 +192,6 @@ class IndexController extends \App\Controller\BaseController
     }
 }
 ?>
-``
+```
 
 The `$request` instance is passed into the validator's `execute()` method and a boolean result shows the status of the tests. You can find out more about using this library [on the GitHub repository for psecio/validation](https://github.com/psecio/validation).
