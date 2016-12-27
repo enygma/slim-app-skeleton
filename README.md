@@ -31,7 +31,19 @@ The manual process goes through the same flow, you just have to do things by han
 2. Use your favorite text editor to open the file and update the settings inside to match your configuration
 3. Copy over the `phinx.yml.example` file to `phinx.yml`
 4. Open it and, in the `development` section update it with your database configuration information (matching what's in `.env`)
+5. Use this command to generate an encryption key:
 
+```
+php -r 'require_once "vendor/autoload.php"; $key = Defuse\Crypto\Key::createNewRandomKey(); echo $key->saveToAsciiSafeString();'
+```
+
+and replace the `ENC_KEY` value with the result
+6. Create a `tmp/` directory and `chmod` it:
+
+```
+mkdir tmp;
+chmod -R 777 tmp;
+```
 
 ## Hosting the site
 

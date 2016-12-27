@@ -75,4 +75,8 @@ printf "Generating encryption key...\n"
 key=`php -r 'require_once "vendor/autoload.php"; $key = Defuse\Crypto\Key::createNewRandomKey(); echo $key->saveToAsciiSafeString();'`
 sed -i.bak "s/enckey/$key/" .env
 
+printf "Setting up tmp directory\n"
+mkdir tmp
+chmod -R 777 tmp
+
 printf "\e[1;32m%-6s\e[m\n\n" "--- Setup complete!"
