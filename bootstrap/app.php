@@ -55,3 +55,9 @@ $container['session'] = function($container) {
     $session = $session_factory->newInstance($_COOKIE);
     return $session->getSegment('default');
 };
+
+// Set up the encryption "helper"
+$container['encryption'] = function($container) {
+    $key = \Defuse\Crypto\Key::loadFromAsciiSafeString($_ENV['ENC_KEY']);
+    return new \App\Lib\EncryptionManager($key);
+};

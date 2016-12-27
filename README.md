@@ -207,3 +207,30 @@ class IndexController extends \App\Controller\BaseController
 ```
 
 The `$request` instance is passed into the validator's `execute()` method and a boolean result shows the status of the tests. You can find out more about using this library [on the GitHub repository for psecio/validation](https://github.com/psecio/validation).
+
+### Data encryption
+
+The skeleton is also equipped with a simple encryption handler making use of the `ENC_KEY` value in the configuration to make it easier to protect data. This handler allows you to encrypt/decrypt string values easily with just two function calls: `encrypt` and `decrypt`. This can be accessed with the `encryption` helper in the controllers:
+
+```php
+<?php
+
+namespace App\Controller;
+
+class IndexController extends \App\Controller\BaseController
+{
+    public function index($request, $response, $args)
+    {
+		$string = 'this is my string';
+
+		// Encrypt the string for use in the page
+		// You can decrypt this data with the $this->encryption->decrypt($data) call
+		$data = [
+			'string' => $this->encryption->encrypt($string)
+		];
+
+		return $this->render('/index/index.php', $data);
+	}
+}
+?>
+```
