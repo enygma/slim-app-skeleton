@@ -1,11 +1,17 @@
 <?php
+$dotenv = new Dotenv\Dotenv(BASE_PATH);
+$dotenv->load();
+
+session_save_path(realpath(__DIR__.'/../tmp'));
+
+$key = \Defuse\Crypto\Key::loadFromAsciiSafeString($_ENV['ENC_KEY']);
+$handler = new \App\Lib\SessionHandler($key);
+session_set_save_handler($handler, true);
+
 session_start();
 
 require_once BASE_PATH.'/vendor/twig/twig/lib/Twig/Autoloader.php';
 \Twig_Autoloader::register();
-
-$dotenv = new Dotenv\Dotenv(BASE_PATH);
-$dotenv->load();
 
 $app = new Slim\App();
 
