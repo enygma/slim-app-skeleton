@@ -7,6 +7,8 @@ This project is a basic skeleton of a Slim application that includes:
 - A basic file structure for an MVC application
 - Database migrations with [Phinx](https://phinx.org/)
 - [Eloquent](https://laravel.com/docs/5.3/eloquent) for working with database models and tables
+- Simple encryption using the [Defuse PHP Encryption](https://github.com/defuse/php-encryption) library
+- Session security improvements (including encryption)
 
 ## Installation:
 
