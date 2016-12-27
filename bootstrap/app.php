@@ -7,6 +7,8 @@ session_save_path(realpath(__DIR__.'/../tmp'));
 $key = \Defuse\Crypto\Key::loadFromAsciiSafeString($_ENV['ENC_KEY']);
 $handler = new \App\Lib\SessionHandler($key);
 session_set_save_handler($handler, true);
+ini_set('session.cookie_httponly', true);
+ini_set('session.use_strict_mode', true);
 
 session_start();
 
