@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Lib;
+namespace Lib;
 
 use Defuse\Crypto\Crypto;
 
