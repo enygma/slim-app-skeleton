@@ -31,7 +31,7 @@ class SessionHandler extends \SessionHandler
     public function read($id)
     {
         $data = parent::read($id);
-        return $this->decrypt($data);
+        return (strlen($data) > 0) ? $this->decrypt($data) : $data;
     }
 
     /**
