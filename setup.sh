@@ -70,4 +70,9 @@ else
     printf "\e[1;31m%-6s\e[m\n\n" "Database configration left as default in .env and phynx.yml"
 fi
 
+# Set up the encryption key
+printf "Generating encryption key...\n"
+key=`php -r 'require_once "vendor/autoload.php"; $key = Defuse\Crypto\Key::createNewRandomKey(); echo $key->saveToAsciiSafeString();'`
+sed -i.bak "s/enckey/$key/" .env
+
 printf "\e[1;32m%-6s\e[m\n\n" "--- Setup complete!"
