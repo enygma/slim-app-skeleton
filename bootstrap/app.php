@@ -32,9 +32,6 @@ ini_set('session.use_strict_mode', true);
 
 session_start();
 
-require_once BASE_PATH.'/vendor/twig/twig/lib/Twig/Autoloader.php';
-\Twig_Autoloader::register();
-
 $app = new Slim\App();
 
 // Autoload our controllers into the app container
