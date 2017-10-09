@@ -17,7 +17,14 @@
         "illuminate/database": "^5.3",
         "psecio/validation": "0.*",
         "robmorgan/phinx": "^0.6.5",
-        "defuse/php-encryption": "^2.0"
+        "defuse/php-encryption": "^2.0",
+        "nicklaw5/twitch-api-php": "^0.1.5",
+        "hybridauth/hybridauth": "^2.9",
+        "league/oauth2-client": "^2.2",
+        "depotwarehouse/oauth2-twitch": "^1.3",
+        "doctrine/dbal": "^2.5",
+        "abraham/twitteroauth": "^0.7.4",
+        "kylewm/brevity": "^0.2.9"
     },
     "autoload": {
         "psr-4": {
