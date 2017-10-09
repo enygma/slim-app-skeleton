@@ -3,7 +3,7 @@
  * This does the setup for the Eloquent handling
  * outside of Laravel (using capsule)
  */
-$dbType = (isset($_ENV['DB_HOST'])) ? $_ENV['DB_HOST'] : 'mysql';
+$dbType = 'mysql';
 
 $dbconfig = [
     'driver'    => $dbType,
