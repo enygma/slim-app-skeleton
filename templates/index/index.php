@@ -1,4 +1,4 @@
-{% extends 'layouts/landing.php' %}
+{% extends 'layouts/main.php' %}
 
 {% block content %}
 
