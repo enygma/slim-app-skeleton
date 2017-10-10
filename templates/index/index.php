@@ -2,9 +2,6 @@
 
 {% block content %}
 
-To start off, link with your Twitch account
-<br/><br/>
-
-<a href="{{ url }}">Twitch</a>
+The installation of the Slim skeleton application was successful! You can find this view in "templates/index/index.php".
 
 {% endblock %}
